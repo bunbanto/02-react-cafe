@@ -1,5 +1,5 @@
 import { useState } from 'react';
-//import clsx from "clsx";
+
 import css from './App.module.css';
 import CafeInfo from '../CafeInfo/CafeInfo';
 import type { Votes, VoteType } from '../../types/votes';
@@ -8,10 +8,12 @@ import VoteOptions from '../VoteOptions/VoteOptions';
 import Notification from '../Notification/Notification';
 import VoteStats from '../VoteStats/VoteStats';
 
+export default App;
+
 function App() {
   const [value, setValue] = useState<Votes>({ good: 0, neutral: 0, bad: 0 });
 
-  function handleVote(type: VoteType) {
+  function updateVote(type: VoteType) {
     setValue({
       ...value,
       [type]: value[type] + 1,
@@ -32,7 +34,7 @@ function App() {
       <div className={css.app}>
         <CafeInfo />
         <VoteOptions
-          onVote={handleVote}
+          onVote={updateVote}
           onReset={resetVotes}
           canReset={canReset}
         />
@@ -49,5 +51,3 @@ function App() {
     </>
   );
 }
-
-export default App;

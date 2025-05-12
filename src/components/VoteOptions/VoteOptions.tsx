@@ -7,7 +7,7 @@ type Props = {
   canReset: boolean;
 };
 
-export default function VoteOptions({ onVote, onReset, canReset }) {
+export default function VoteOptions({ onVote, onReset, canReset }: Props) {
   return (
     <div className={css.container}>
       <button onClick={() => onVote('good')} className={css.button}>
@@ -27,34 +27,3 @@ export default function VoteOptions({ onVote, onReset, canReset }) {
     </div>
   );
 }
-
-// export interface VoteOptionsProps {
-//   onVote: (type: VoteType) => void;
-//   onReset: () => void;
-//   canReset: boolean;
-// }
-
-// export default function VoteOptions({
-//   onVote,
-//   onReset,
-//   canReset,
-// }: VoteOptionsProps) {
-//   return (
-//     <div className={css.container}>
-//       <button onClick={() => onVote('good')} className={css.button}>
-//         Good
-//       </button>
-//       <button onClick={() => onVote('neutral')} className={css.button}>
-//         Neutral
-//       </button>
-//       <button onClick={() => onVote('bad')} className={css.button}>
-//         Bad
-//       </button>
-//       {canReset ? (
-//         <button onClick={onReset} className={`${css.button} ${css.reset}`}>
-//           Reset
-//         </button>
-//       ) : null}
-//     </div>
-//   );
-// }

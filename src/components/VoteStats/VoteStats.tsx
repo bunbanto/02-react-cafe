@@ -1,16 +1,17 @@
 import styles from './VoteStats.module.css';
 import type { Votes } from '../../types/votes';
 
-interface VoteStats {
+interface VoteStatsProps {
   votes: Votes;
   totalVotes: number;
   positiveRate: number;
 }
 
-export default function VoteStats({ votes }: VoteStats) {
-  const totalVotes = votes.bad + votes.good + votes.neutral;
-  const positiveRate =
-    totalVotes === 0 ? 0 : Math.round((votes.good / totalVotes) * 100);
+export default function VoteStats({
+  votes,
+  totalVotes = 0,
+  positiveRate = 0,
+}: VoteStatsProps) {
   return (
     <div className={styles.container}>
       <p className={styles.stat}>
